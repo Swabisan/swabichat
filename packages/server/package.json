@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "author": "swabisan <michaelrogerswanson@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "dev": "nodemon",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
+    "prettier:watch": "onchange \"src/**/*.ts\" -- prettier --write {{changed}}",
+    "prod": "npm run build && node build/index.js",
+    "test": "echo \"Error: no test specified\"",
+    "test:watch": "onchange \"src/**/*.ts\" -- npm run test"
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "onchange": "^7.1.0",
+    "prettier": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
