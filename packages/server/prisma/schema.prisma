@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./swabichat.db"
+}
+
+model User {
+  id    Int       @id @default(autoincrement())
+  name  String    @unique
+  posts Message[] @relation("from")
+  inbox Message[] @relation("to")
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  body      String
+  author    String
+  from      User     @relation("from", fields: [author], references: [name])
+  to        User[]   @relation("to")
+}

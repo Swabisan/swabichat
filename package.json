@@ -6,9 +6,14 @@
   "author": "swabisan <michaelrogerswanson@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "lerna run dev --stream",
+    "format": "lerna run format",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "test": "lerna run test"
   },
   "devDependencies": {
