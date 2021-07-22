@@ -4,15 +4,14 @@
   "author": "swabisan <michaelrogerswanson@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "prepare": "yarn db:push",
     "build": "rimraf ./build && tsc",
-    "dev": "nodemon",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "db:push": "prisma db push",
+    "lint": "eslint . --ext .ts --fix",
     "format": "prettier --config .prettierrc \"src/**/*.ts\" --write",
-    "format:watch": "onchange \"src/**/*.ts\" -- prettier --config .prettierrc --write {{changed}}",
-    "prod": "npm run build && node build/index.js",
-    "test": "echo \"Error: no test specified\"",
-    "test:watch": "onchange \"src/**/*.ts\" -- npm run test"
+    "start:dev": "prisma generate && nodemon",
+    "start:prod": "yarn db:push && yarn build && node build/index.js",
+    "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
     "@types/node": "^15.3.0",
@@ -22,7 +21,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "nodemon": "^2.0.7",
-    "onchange": "^7.1.0",
     "prettier": "^2.3.0",
     "prisma": "^2.27.0",
     "rimraf": "^3.0.2",

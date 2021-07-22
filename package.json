@@ -10,10 +10,13 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --stream",
+    "prepare": "lerna run prepare",
+    "build": "lerna run build",
+    "dev": "yarn start:dev",
     "format": "lerna run format",
     "lint": "lerna run lint",
-    "lint:fix": "lerna run lint:fix",
+    "start:dev": "lerna run start:dev --stream",
+    "start:prod": "lerna run start:prod --stream",
     "test": "lerna run test"
   },
   "devDependencies": {
