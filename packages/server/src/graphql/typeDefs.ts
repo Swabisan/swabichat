@@ -4,19 +4,19 @@ export const typeDefs: ITypeDefinitions = `
   scalar DateTime
 
   type User {
-    id:        Int
-    name:      String
-    posts: [Message]
-    messages: [Message]
+    id:        Int!
+    name:      String!
+    posts: [Message!]!
+    messages: [Message!]!
   }
 
   type Message {
-    id:         Int
-    createdAt:  DateTime
-    body:       String
-    author:     String
-    from:       User
-    to:         [User]
+    id:         Int!
+    createdAt:  DateTime!
+    body:       String!
+    author:     String!
+    from:       User!
+    to:         [User!]!
   }
 
   type Query {
