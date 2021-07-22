@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 
 export type Resolver<Args, Response> = (
-  root: any,
+  root: unknown,
   args: Args,
   context: { db: PrismaClient },
-  info: any
+  info: unknown
 ) => Promise<Response>
