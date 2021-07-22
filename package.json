@@ -12,14 +12,16 @@
   "scripts": {
     "prepare": "lerna run prepare",
     "build": "lerna run build",
+    "clean": "lerna run clean --stream",
     "dev": "yarn start:dev",
     "format": "lerna run format",
     "lint": "lerna run lint",
-    "start:dev": "lerna run start:dev --stream",
-    "start:prod": "lerna run start:prod --stream",
+    "start:dev": "yarn clean && lerna run start:dev --stream --parallel",
+    "start:prod": "yarn clean && lerna run start:prod --stream --parallel",
     "test": "lerna run test"
   },
   "devDependencies": {
+    "kill-port": "^1.6.1",
     "lerna": "^4.0.0"
   }
 }

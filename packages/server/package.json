@@ -6,10 +6,11 @@
   "scripts": {
     "prepare": "yarn db:push",
     "build": "rimraf ./build && tsc",
+    "clean": "kill-port --port 4000",
     "db:push": "prisma db push",
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --config .prettierrc \"src/**/*.ts\" --write",
-    "start:dev": "prisma generate && nodemon",
+    "start:dev": "nodemon",
     "start:prod": "yarn db:push && yarn build && node build/index.js",
     "test": "echo \"Error: no test specified\""
   },
