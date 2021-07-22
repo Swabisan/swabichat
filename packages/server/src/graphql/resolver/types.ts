@@ -1,8 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 
-export type Resolver = (
+export type Resolver<Args, Response> = (
   root: any,
-  args: unknown,
-  context: { db: PrismaClient},
+  args: Args,
+  context: { db: PrismaClient },
   info: any
-) => Promise<unknown>
+) => Promise<Response>

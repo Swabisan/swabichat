@@ -1,10 +1,11 @@
+import { Message } from '@prisma/client'
+
 import { Resolver } from './types'
 
-export const send: Resolver = async (
-  root,
-  { to, from, body }: { to: string[]; from: string; body: string },
-  { db }
-) => {
+export const send: Resolver<
+  { to: string[]; from: string; body: string },
+  Message
+> = async (root, { to, from, body }, { db }) => {
   const sent = await db.message.create({
     data: {
       to: {
