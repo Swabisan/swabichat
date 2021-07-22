@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "clean": "kill-port --port 4000",
+    "clean": "kill-port --port 3000",
     "eject": "react-scripts eject",
     "start:dev": "react-scripts start",
     "start:prod": "yarn start:dev",
