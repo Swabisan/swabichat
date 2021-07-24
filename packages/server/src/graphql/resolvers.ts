@@ -1,6 +1,6 @@
 import { IResolvers } from 'graphql-tools'
 
-import { messages, send } from './resolver'
+import { messages, newMessages, send } from './resolver'
 
 export const resolvers: IResolvers = {
   Query: {
@@ -10,8 +10,6 @@ export const resolvers: IResolvers = {
     send
   },
   Subscription: {
-    newMessages: {
-      subscribe: (root, { to }, { pubsub }) => pubsub.asyncIterator(`to:${to}`)
-    }
+    newMessages
   }
 }
