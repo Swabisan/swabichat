@@ -5,25 +5,33 @@ import { Resolver } from './types'
 export const send: Resolver<
   { to: string[]; from: string; body: string },
   Message
-> = async (root, { to, from, body }, { db }) => {
-  const sent = await db.message.create({
-    data: {
-      to: {
-        connectOrCreate: to.map((name: string) => ({
-          where: { name },
-          create: { name }
-        }))
+> = async (root, { to, from, body }, { db, pubsub }) => {
+  const sent = await db.message
+    .create({
+      data: {
+        to: {
+          connectOrCreate: to.map((name: string) => ({
+            where: { name },
+            create: { name }
+          }))
+        },
+        from: {
+          connectOrCreate: {
+            where: { name: from },
+            create: { name: from }
+          }
+        },
+        body
       },
-      from: {
-        connectOrCreate: {
-          where: { name: from },
-          create: { name: from }
-        }
-      },
-      body
-    },
-    include: { from: true, to: true }
-  })
+      include: { from: true, to: true }
+    })
+    .then((sent) => {
+      to.map((name: string) => {
+        pubsub.publish(`to:${name}`, { newMessages: sent })
+      })
+
+      return sent
+    })
 
   return sent
 }

@@ -8,5 +8,10 @@ export const resolvers: IResolvers = {
   },
   Mutation: {
     send
+  },
+  Subscription: {
+    newMessages: {
+      subscribe: (root, { to }, { pubsub }) => pubsub.asyncIterator(`to:${to}`)
+    }
   }
 }
