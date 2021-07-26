@@ -1,3 +1,3 @@
 export * from './messages'
-export * from './newMessages'
+export * from './onNewMessage'
 export * from './send'

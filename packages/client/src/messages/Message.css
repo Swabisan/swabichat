@@ -1,0 +1,62 @@
+.body {
+    resize: vertical
+}
+
+.from {
+    color: gainsboro;
+}
+
+.from > .title {
+    font-size: x-small;
+}
+
+.message {
+    display: flex;
+    flex-flow: column nowrap;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+
+    margin: 1rem;
+
+    text-align: left;
+}
+
+.message > * {
+    margin: 0.5rem;
+
+    max-width: 50;
+}
+
+.message > hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+    height: 0;
+
+    margin: 0;
+}
+
+.messages {
+    margin: 0 1rem;
+
+    max-width: 100%;
+}
+
+.to {
+    align-items: flex-start;
+
+    padding: 0;
+}
+
+.to > .title {
+    font-size: x-small;
+}
+
+input {
+    background-color: #282c34;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    color: white;
+}

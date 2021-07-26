@@ -27,7 +27,7 @@ export const send: Resolver<
     })
     .then((sent) => {
       to.map((name: string) => {
-        pubsub.publish(`to:${name}`, { newMessages: sent })
+        pubsub.publish(`to:${name}`, { onNewMessage: sent })
       })
 
       return sent
