@@ -1,4 +1,4 @@
-import { GraphQLServer } from 'graphql-yoga'
+import { GraphQLServer, PubSub } from 'graphql-yoga'
 import { PrismaClient } from '@prisma/client'
 
 import { resolvers, typeDefs } from './graphql'
@@ -7,7 +7,8 @@ const server = new GraphQLServer({
   typeDefs,
   resolvers,
   context: {
-    db: new PrismaClient()
+    db: new PrismaClient(),
+    pubsub: new PubSub()
   }
 })
 

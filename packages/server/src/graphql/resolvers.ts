@@ -1,6 +1,6 @@
 import { IResolvers } from 'graphql-tools'
 
-import { messages, send } from './resolver'
+import { messages, onNewMessage, send } from './resolver'
 
 export const resolvers: IResolvers = {
   Query: {
@@ -8,5 +8,8 @@ export const resolvers: IResolvers = {
   },
   Mutation: {
     send
+  },
+  Subscription: {
+    onNewMessage
   }
 }

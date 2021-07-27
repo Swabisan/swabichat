@@ -26,4 +26,8 @@ export const typeDefs: ITypeDefinitions = `
   type Mutation {
     send(to: [String!]!, from: String!, body: String!): Message!
   }
+
+  type Subscription {
+    onNewMessage(to: String!): Message!
+  }
 `
