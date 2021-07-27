@@ -1,9 +1,11 @@
-button {
+.chip {
     background-color: #282c34;
     border: solid 1px white;
     border-radius: 5px;
 
     color: white;
+
+    font-size: small;
 
     margin: 0.1rem;
 }

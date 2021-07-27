@@ -6,11 +6,17 @@ export const messages: Resolver<{ to?: string[]; from?: string }, Message[]> =
   async (root, { to, from }, { db }) => {
     const messages = await db.message.findMany({
       where: {
-        author: from == null ? undefined : from,
-        to:
-          to == null
-            ? undefined
-            : { some: { OR: to.map((name: string) => ({ name })) } }
+        OR: [
+          {
+            author: from == null ? undefined : from
+          },
+          {
+            to:
+              to == null
+                ? undefined
+                : { some: { OR: to.map((name: string) => ({ name })) } }
+          }
+        ]
       },
       include: { from: true, to: true }
     })

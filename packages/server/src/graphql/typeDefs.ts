@@ -28,6 +28,6 @@ export const typeDefs: ITypeDefinitions = `
   }
 
   type Subscription {
-    onNewMessage(to: String!): Message
+    onNewMessage(to: String!): Message!
   }
 `

@@ -1,5 +1,8 @@
 .body {
-    resize: vertical
+    display: flex;
+    flex-flow: column nowrap;
+    
+    align-items: stretch;
 }
 
 .from {
@@ -7,7 +10,17 @@
 }
 
 .from > .title {
+    color: white;
+
     font-size: x-small;
+}
+
+.info {
+    color: gainsboro;
+}
+
+.info:empty {
+    margin: 0;
 }
 
 .message {
@@ -47,16 +60,54 @@
 .to {
     align-items: flex-start;
 
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+
     padding: 0;
 }
 
 .to > .title {
     font-size: x-small;
+
+    padding-right: 0.25rem;
 }
 
-input {
-    background-color: #282c34;
+.to > .required {
+    color: gainsboro;
+
+    font-size: small;
+    
+    padding: 0 0.25rem;
+}
+
+form.to > .chip:hover {
+    background: rgba(200, 0, 0);
+    cursor: pointer;
+}
+
+.when {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+
+    font-size: xx-small;
+}
+
+textarea, input, button {
+    background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
 
     color: white;
+
+    resize: vertical;
+}
+
+button:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+}
+
+button:disabled {
+    color: rgba(255, 255, 255, 0.3);
 }

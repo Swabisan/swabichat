@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Message as MessageProps } from "@prisma/client";
 
 import Message from "./Message";
 
 interface Props {
-    messages?: any[]
+    messages?: MessageProps[]
 }
 
 const Messages = ({ messages }: Props) => {
     return (
         <div className="messages">
-            <Message />
-
-            {messages?.length === 0 ? "No Messages..." : "Recieved: "}
+            {messages?.length === 0 ? "no messages..." : "feed"}
             {messages?.map(
                 (message, index) =>
                     <div key={index}>
